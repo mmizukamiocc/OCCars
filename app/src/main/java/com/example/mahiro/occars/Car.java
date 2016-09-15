@@ -20,9 +20,29 @@ public class Car {
     return( mPrice *( 1 + TAX_RATE)) - mDownPayment;
    }
 
+    public double calculateInterstAmount()
+    {
+        double interest;
+        if(mLoanTerm == 3)
+        {interest = calculateBorrowedAmount() * 4.62;}
+        else if (mLoanTerm == 4)
+        {interest = calculateBorrowedAmount() * 4.16;}
+        else if (mLoanTerm == 5)
+        {interest = calculateBorrowedAmount() * 4.19;}
+        else
+        {interest = 0.0;}
+        return interest;
+    }
 
+    public double calculateMonthlyPayment()
+    {
+        return ((mPrice - mDownPayment) /( mLoanTerm * 12));
+    }
 
-
+    public double calculateTaxAmount()
+    {
+        return mPrice * TAX_RATE;
+    }
 
 
     public double getDownPayment() {
