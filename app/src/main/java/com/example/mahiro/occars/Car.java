@@ -7,7 +7,8 @@ public class Car {
     private double mDownPayment;
     private int mLoanTerm;
     private double mPrice;
-    private double TAX_RATE;
+    private double TAX_RATE = 0.08;
+
 
     public Car(){
          mDownPayment = 0.0;
@@ -17,10 +18,10 @@ public class Car {
 
    public double calculateBorrowedAmount()
    {
-    return( mPrice *( 1 + TAX_RATE)) - mDownPayment;
+    return(calculateTotalCost()  - mDownPayment);
    }
 
-    public double calculateInterstAmount()
+    public double calculateInterestAmount()
     {
         double interest;
         if(mLoanTerm == 3)
@@ -36,12 +37,17 @@ public class Car {
 
     public double calculateMonthlyPayment()
     {
-        return ((mPrice - mDownPayment) /( mLoanTerm * 12));
+        return ((calculateTotalCost() - mDownPayment) /( mLoanTerm * 12));
     }
 
-    public double calculateTaxAmount()
+   public double calculateTaxAmount()
     {
         return mPrice * TAX_RATE;
+    }
+
+    public double calculateTotalCost()
+    {
+        return mPrice + calculateTaxAmount();
     }
 
 
