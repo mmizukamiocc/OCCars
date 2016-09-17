@@ -25,11 +25,11 @@ public class Car {
     {
         double interest;
         if(mLoanTerm == 3)
-        {interest = calculateBorrowedAmount() * 4.62;}
+        {interest = calculateBorrowedAmount() * 0.0462;}
         else if (mLoanTerm == 4)
-        {interest = calculateBorrowedAmount() * 4.16;}
+        {interest = calculateBorrowedAmount() * 0.0416;}
         else if (mLoanTerm == 5)
-        {interest = calculateBorrowedAmount() * 4.19;}
+        {interest = calculateBorrowedAmount() * 0.0419;}
         else
         {interest = 0.0;}
         return interest;
